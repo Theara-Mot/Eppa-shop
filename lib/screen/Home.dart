@@ -1,3 +1,4 @@
+import 'package:eppa_shop/components/AppProductCard.dart';
 import 'package:eppa_shop/components/SocialMediaButton.dart';
 import 'package:eppa_shop/utils/AppColor.dart';
 import 'package:flutter/cupertino.dart';
@@ -20,7 +21,7 @@ class _HomeScreenState extends State<HomeScreen> {
     final textTheme = Theme.of(context).textTheme;
     return  SafeArea(
       child: Scaffold(
-        body: Padding(
+        body: SingleChildScrollView(
           padding: EdgeInsets.symmetric(horizontal: 20.w),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -59,7 +60,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   children: [
                     // Background image
                     Image.asset(
-                      'assets/images/shoes.png', // Replace with your image path
+                      'assets/images/hat.png', // Replace with your image path
                       width: double.infinity,
                       height: 172.h,
                       fit: BoxFit.contain, // Adjust to your preference (e.g., BoxFit.fill, BoxFit.contain)
@@ -114,7 +115,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 child: Row(
                   children: List.generate(5, (index) {
                     return Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 8.0), // Adjust spacing between avatars
+                      padding: EdgeInsets.only(right: 20.w), // Adjust spacing between avatars
                       child: Column(
                         children: [
                           CircleAvatar(
@@ -134,76 +135,24 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               SizedBox(height: 32.h,),
               Text('Recommended For You',style: textTheme.bodyLarge?.copyWith(fontWeight: FontWeight.w700),),
-
-              Expanded(
-                child: Stack(
-                  children: [
-                    SizedBox(
-                        width: double.infinity,
-                        child: GridView.count(
-                          crossAxisCount: 2, // Number of columns
-                          children: List.generate(20, (index) {
-                            return Container(
-                              height: 10,
-                              margin: const EdgeInsets.all(8.0),
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(12),
-                                // color: Colors.black.withOpacity(0.1),
-                                color: Colors.white,
-                              ),
-                              child: Center(
-                                child: Column(
-                                  children: [
-                                    Expanded(
-                                      flex: 3,
-                                      child: Stack(
-
-                                        children: [
-                                          Container(
-                                            decoration: const BoxDecoration(
-
-                                              image: DecorationImage(
-                                                image: AssetImage('assets/images/shoes.png'), // Path to your image
-                                                fit: BoxFit.contain, // Cover the entire screen
-                                              ),
-                                            ),
-                                          ),
-                                          Container(
-                                            margin: const EdgeInsets.only(right: 10, top: 10),
-                                            alignment: Alignment.topRight,
-                                            child: const Icon(Icons.bookmark_border, size: 24,),
-                                          )
-                                        ],
-                                      ),
-                                    ),
-                                    Expanded(
-                                      flex: 1,
-                                      child: Column(
-                                        mainAxisAlignment: MainAxisAlignment.start,
-                                        crossAxisAlignment: CrossAxisAlignment.start,
-                                        children: [
-                                          Container(
-                                            child: Text("Smart watch", style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),),
-                                            padding: EdgeInsets.only(left: 20),
-                                          ),
-                                          Container(
-                                            width: double.infinity,
-                                            padding: EdgeInsets.only(left: 20),
-                                            child: Text("\$120", style: TextStyle(fontSize: 16),),
-                                          )
-                                        ],
-                                      ),
-                                    )
-                                  ],
-                                ),
-                              ),
-                            );
-                          }),
-                        )
-                    ),
-                  ],
-                ),
-              )
+              SizedBox(height: 20.h,),
+              Row(
+                children: [
+                  AppProductCard(
+                    imageUrl: 'assets/images/glasses.png',
+                    title: 'RAY-BAN 2180',
+                    price: '149',
+                  ),
+                  SizedBox(width: 11.w,),
+                  AppProductCard(
+                    imageUrl: 'assets/images/watch.png',
+                    title: 'BOSS Ocean',
+                    price: '101',
+                    bgColor: Color(0xffEAE8E9),
+                  ),
+                ],
+              ),
+              SizedBox(height: 20.h,),
             ],
           ),
         ),

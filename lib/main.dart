@@ -1,5 +1,8 @@
 
+import 'package:eppa_shop/screen/Home.dart';
 import 'package:eppa_shop/screen/NavBar.dart';
+import 'package:eppa_shop/screen/SearchScreen.dart';
+import 'package:eppa_shop/screen/WishListScreen.dart';
 import 'package:eppa_shop/screen/auth/EnterPhoneNumber.dart';
 import 'package:eppa_shop/screen/auth/PhoneVerify.dart';
 import 'package:eppa_shop/screen/auth/registration.dart';
@@ -35,7 +38,7 @@ class MyApp extends StatelessWidget {
           home: child,
         );
       },
-      child: AppNavBar(),
+      child: WishlistScreen(),
     );
   }
 }

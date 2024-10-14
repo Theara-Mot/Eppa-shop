@@ -35,8 +35,8 @@ class _AppNavBarState extends State<AppNavBar> {
   Widget build(BuildContext context) {
     final screens = [
       HomeScreen(),
-      Searchscreen(),
-      Wishlistscreen(),
+      SearchScreen(),
+      WishlistScreen(),
       CategoryScreen(),
       Profilescreen(),
     ];

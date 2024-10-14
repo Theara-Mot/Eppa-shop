@@ -23,7 +23,7 @@ class RegistrationScreen extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Image.asset(
-                  'assets/images/img.png',
+                  'assets/images/nike.png',
                   height: 44.h,
                 ),
                 SocialMediaButton(icon: Icons.close,height: 36.w,iconSize: 12.w,),
