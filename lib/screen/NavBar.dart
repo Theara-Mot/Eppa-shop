@@ -1,4 +1,3 @@
-import 'package:eppa_shop/components/AppBack.dart';
 import 'package:eppa_shop/screen/CategoryScreen.dart';
 import 'package:eppa_shop/screen/Home.dart';
 import 'package:eppa_shop/screen/ProfileScreen.dart';
@@ -7,7 +6,6 @@ import 'package:eppa_shop/screen/WishListScreen.dart';
 import 'package:eppa_shop/utils/AppColor.dart';
 import 'package:flutter/material.dart';
 import 'dart:ui';
-
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -37,13 +35,11 @@ class _AppNavBarState extends State<AppNavBar> {
       HomeScreen(),
       SearchScreen(),
       WishlistScreen(),
-      CategoryScreen(),
-      Profilescreen(),
+      FavouriteScreen(),
+      ProfileScreen(),
     ];
     final themeMode = Theme.of(context).brightness;
     final isDarkMode = themeMode == Brightness.light;
-    final textTheme = Theme.of(context).textTheme;
-
     return Scaffold(
       resizeToAvoidBottomInset: false,
 
@@ -63,10 +59,7 @@ class _AppNavBarState extends State<AppNavBar> {
                   decoration: BoxDecoration(
                     color: isDarkMode?AppColor.dark:AppColor.white,
                     borderRadius: BorderRadius.circular(80),
-                    border: Border.all(
-                      color: Colors.lightBlue.withOpacity(0.2),
-                      width: 1.5,
-                    ),
+
                   ),
                   padding: EdgeInsets.all(10),
                   child: Row(
@@ -74,8 +67,7 @@ class _AppNavBarState extends State<AppNavBar> {
                     children: [
                       _buildNavItem(Icons.home, 0),
                       _buildNavItem(Icons.search, 1),
-                      _buildNavItem(
-                          FontAwesomeIcons.bagShopping, 2),
+                      _buildNavItem(FontAwesomeIcons.bagShopping, 2),
                       _buildNavItem(FontAwesomeIcons.solidBookmark,3),
                       _buildNavItem(Icons.admin_panel_settings, 4,imagePath:'assets/images/me.png'),
                     ],
@@ -95,8 +87,8 @@ class _AppNavBarState extends State<AppNavBar> {
       child: imagePath.isNotEmpty
           ? Image.asset(
         imagePath,
-        width: 24.sp, // Set your desired width
-        height: 24.sp, // Set your desired height
+        width: 24.sp,
+        height: 24.sp,
       )
           : Icon(
         icon,
@@ -105,6 +97,4 @@ class _AppNavBarState extends State<AppNavBar> {
       ),
     );
   }
-
-
 }

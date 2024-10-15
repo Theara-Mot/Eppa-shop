@@ -1,9 +1,11 @@
 import 'package:eppa_shop/components/AppTextInput.dart';
 import 'package:eppa_shop/components/customButton.dart';
+import 'package:eppa_shop/screen/auth/PhoneVerify.dart';
 import 'package:eppa_shop/utils/AppColor.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
+import 'package:get/get.dart';
+import 'package:get/get_navigation/src/routes/transitions_type.dart';
 import '../../components/SocialMediaButton.dart';
 
 class RegistrationScreen extends StatelessWidget {
@@ -14,7 +16,7 @@ class RegistrationScreen extends StatelessWidget {
     var textTheme = Theme.of(context).textTheme;
     return Scaffold(
       body: Padding(
-        padding: EdgeInsets.only(left: 52.w,top: 16.h,right: 20.w,bottom: 10.h), // Padding for responsiveness
+        padding: EdgeInsets.only(left: 52.w,top: 16.h,right: 20.w,bottom: 10.h),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -23,7 +25,7 @@ class RegistrationScreen extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Image.asset(
-                  'assets/images/nike.png',
+                  'assets/images/${isDarkMode?'img_1':'LOGO'}.png',
                   height: 44.h,
                 ),
                 SocialMediaButton(icon: Icons.close,height: 36.w,iconSize: 12.w,),
@@ -77,55 +79,28 @@ class RegistrationScreen extends StatelessWidget {
                   children: [
                     Text(
                       'I agree with ',
-                      style: textTheme.bodyMedium?.copyWith(color:isDarkMode?AppColor.light:AppColor.medium ,fontWeight: FontWeight.w700)
+                      style: textTheme.bodyMedium?.copyWith(color:isDarkMode?AppColor.medium:AppColor.light ,fontWeight: FontWeight.w700)
                     ),
                     GestureDetector(
                       onTap: () {
                       },
                       child: Text(
                         'Terms of Use',
-                        style: textTheme.bodyMedium?.copyWith(color: Colors.purpleAccent,fontWeight: FontWeight.w700),
+                        style: textTheme.bodyMedium?.copyWith(color: Colors.purpleAccent,fontWeight: FontWeight.w700,),
                       ),
                     ),
                   ],
                 ),
-                CustomButton(text: 'Sign Up', onTap: (){})
+                CustomButton(text: 'Sign Up', onTap: (){
+                  Get.to(() => PhoneVerifyScreen(), transition: Transition.rightToLeft);
+                })
               ],
             ),
             SizedBox(height: 30.h),
-
           ],
         ),
       ),
     );
   }
 
-
-  Widget _buildTermsAndSignUp(BuildContext context, TextTheme textTheme) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Row(
-          children: [
-            Text(
-              'I agree with ',
-              style: textTheme.bodyMedium?.copyWith(color: Colors.white.withOpacity(0.6)),
-            ),
-            GestureDetector(
-              onTap: () {
-                // Navigate to terms of use
-              },
-              child: Text(
-                'Terms of Use',
-                style: textTheme.bodyMedium?.copyWith(color: Colors.purpleAccent),
-              ),
-            ),
-          ],
-        ),
-        SizedBox(height: 20.h),
-        CustomButton(text: 'Sign Up', onTap: (){}),
-        SizedBox(height: 20.h),
-      ],
-    );
-  }
 }

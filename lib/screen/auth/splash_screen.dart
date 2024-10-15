@@ -2,9 +2,6 @@ import 'package:eppa_shop/screen/auth/registration.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
-import 'package:get/get_navigation/src/routes/transitions_type.dart';
-
 import '../../components/customButton.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -16,7 +13,7 @@ class SplashScreen extends StatefulWidget {
 
 class _SplashScreenState extends State<SplashScreen> {
   final PageController _pageController = PageController();
-  int _currentPage = 0; // Track the current page
+  int _currentPage = 0;
 
   @override
   void dispose() {
@@ -125,7 +122,7 @@ class _SplashScreenState extends State<SplashScreen> {
       duration: Duration(milliseconds: 300),
       margin: EdgeInsets.symmetric(horizontal: 4.w),
       height: 4.h,
-      width: _currentPage == index ? 16.w : 4.w, // Active dot is wider
+      width: _currentPage == index ? 16.w : 4.w,
       decoration: BoxDecoration(
         color: _currentPage == index ? Colors.white : Colors.grey,
         borderRadius: BorderRadius.circular(8.r),

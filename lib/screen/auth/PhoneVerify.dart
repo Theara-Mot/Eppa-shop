@@ -1,7 +1,5 @@
-import 'package:country_code_picker/country_code_picker.dart';
 import 'package:eppa_shop/components/AppBack.dart';
 import 'package:eppa_shop/components/customButton.dart';
-import 'package:eppa_shop/screen/Home.dart';
 import 'package:eppa_shop/screen/NavBar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -19,8 +17,6 @@ class _PhoneVerifyScreenState extends State<PhoneVerifyScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final themeMode = Theme.of(context).brightness;
-    final isDarkMode = themeMode == Brightness.light;
     final textTheme = Theme.of(context).textTheme;
 
     return Scaffold(

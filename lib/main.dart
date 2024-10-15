@@ -31,14 +31,14 @@ class MyApp extends StatelessWidget {
         return GetMaterialApp(
           debugShowCheckedModeBanner: false,
           title: 'EPPA SHOP',
-          // theme: AppTheme.darkTheme,
-          theme: AppTheme.lightTheme,
+          theme: AppTheme.darkTheme,
+          // theme: AppTheme.lightTheme,
           darkTheme: AppTheme.darkTheme,
           themeMode: WidgetsBinding.instance.window.platformBrightness == Brightness.light ? ThemeMode.light : ThemeMode.dark,
           home: child,
         );
       },
-      child: WishlistScreen(),
+      child: SplashScreen(),
     );
   }
 }

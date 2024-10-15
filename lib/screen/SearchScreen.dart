@@ -1,6 +1,4 @@
 import 'dart:ui';
-
-import 'package:eppa_shop/components/SocialMediaButton.dart';
 import 'package:eppa_shop/utils/AppColor.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -120,9 +118,9 @@ class SearchScreen extends StatelessWidget {
                         width: 24.h,
                         decoration: BoxDecoration(
                           color:isDarkMode?AppColor.white: AppColor.medium,
-                          shape: BoxShape.circle, // Makes the container circular
+                          shape: BoxShape.circle,
                         ),
-                        child: Icon(Icons.close, size: 16.sp), // You can adjust the size of the icon as needed
+                        child: Icon(Icons.close, size: 16.sp),
                       ),
                       SizedBox(width: 8.w),
                       Text(
@@ -160,12 +158,10 @@ class SearchScreen extends StatelessWidget {
 
   Widget _buildPopularSearches(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
-    final themeMode = Theme.of(context).brightness;
-    final isDarkMode = themeMode == Brightness.light;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
+        const Text(
           'Popular Searches',
           style: TextStyle(fontWeight: FontWeight.bold),
         ),
@@ -173,7 +169,7 @@ class SearchScreen extends StatelessWidget {
         GridView.builder(
           itemCount: popularSearches.length,
           shrinkWrap: true,
-          physics: NeverScrollableScrollPhysics(),
+          physics:const NeverScrollableScrollPhysics(),
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 2,
             childAspectRatio: 2 / 1.5,
@@ -199,9 +195,9 @@ class SearchScreen extends StatelessWidget {
                     ),
                     Positioned.fill(
                       child: BackdropFilter(
-                        filter: ImageFilter.blur(sigmaX: 1, sigmaY: 1), // Adjust blur level as needed
+                        filter: ImageFilter.blur(sigmaX: 1, sigmaY: 1),
                         child: Container(
-                          color: AppColor.black40.withOpacity(0.4), // Black overlay with 40% opacity
+                          color: AppColor.black40.withOpacity(0.4),
                         ),
                       ),
                     ),

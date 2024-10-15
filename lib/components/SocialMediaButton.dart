@@ -10,6 +10,7 @@ class SocialMediaButton extends StatelessWidget {
   final double? iconSize; // Optional icon size parameter
   final String? image; // Optional image parameter
   final Color? bgColor; // Optional background color parameter
+  final Color? iconColor; // Optional icon color parameter
 
   SocialMediaButton({
     super.key,
@@ -18,7 +19,8 @@ class SocialMediaButton extends StatelessWidget {
     this.height, // Optional height constructor
     this.iconSize, // Optional icon size constructor
     this.image, // Optional image constructor
-    this.bgColor,
+    this.bgColor, // Optional background color constructor
+    this.iconColor, // Optional icon color constructor
   });
 
   @override
@@ -27,6 +29,7 @@ class SocialMediaButton extends StatelessWidget {
     double buttonHeight = height ?? 48.h;
     double calculatedIconSize = iconSize ?? 24.h;
     Color buttonBgColor = bgColor ?? (themeMode == Brightness.light ? AppColor.medium20 : AppColor.white10); // Use bgColor if provided, else fallback to theme
+    Color finalIconColor = iconColor ?? (themeMode == Brightness.light ? AppColor.black : AppColor.white); // Use iconColor if provided, else fallback to theme
 
     return ElevatedButton(
       onPressed: onPressed,
@@ -46,7 +49,7 @@ class SocialMediaButton extends StatelessWidget {
           : Icon(
         icon,
         size: calculatedIconSize, // Use the calculated icon size
-        color: themeMode == Brightness.light ? AppColor.black : AppColor.white,
+        color: finalIconColor, // Use the provided or fallback icon color
       ),
     );
   }

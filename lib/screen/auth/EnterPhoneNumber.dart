@@ -88,9 +88,9 @@ class _EnterPhoneNumberState extends State<EnterPhoneNumber> {
                               fontWeight: FontWeight.w700,
                             ),
                           ),
-                          keyboardType: TextInputType.number, // Change to number for numeric input
+                          keyboardType: TextInputType.number,
                           inputFormatters: [
-                            FilteringTextInputFormatter.digitsOnly, // Allow only digits
+                            FilteringTextInputFormatter.digitsOnly,
                           ],
                         ),
                       ),

@@ -50,6 +50,7 @@ class AppProductCard extends StatelessWidget {
                         title,
                         style: textTheme.bodyLarge?.copyWith(
                           fontWeight: FontWeight.w700,
+                          color: AppColor.black
                         ),
                       ),
                       SizedBox(height: 4.h),
@@ -57,6 +58,7 @@ class AppProductCard extends StatelessWidget {
                         '\$$price',
                         style: textTheme.bodyLarge?.copyWith(
                           fontWeight: FontWeight.w400,
+                            color: AppColor.black
                         ),
                       ),
                     ],
